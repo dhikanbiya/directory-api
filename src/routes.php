@@ -1,24 +1,5 @@
 <?php
 // Routes
-
-$app->post('/register', function ($request, $response) {
-   if ($this->regValidation->hasErrors()) { // check for errors with hasErrors
-        $data = array();
-        return $this->response->withJson(array('status'=>'false','data'=>array($this->regValidation->getErrors())));
-    } else {
-        $input = $request->getParsedBody();   
-        $sql = "INSERT INTO tbl_account(username,email,password,device) VALUES (:username,:email,:password,:device)";
-        $sth = $this->db->prepare($sql);
-        $sth->execute(array(
-            'username' => $input['username'],
-            'email' => $input['email'],
-            'password' => passhash($input['password']),
-            'device' => $input['device']
-        ));
-         return $this->response->withJson(array('status'=>'true'));        
-    }
-})->add($container->get('regValidation'));
-
 $app->post('/login',function($request,$response){
     $input = $request->getParsedBody();
 
@@ -26,7 +7,7 @@ $app->post('/login',function($request,$response){
     $stmt->execute(array('username' => $input['username']));      
     $row = $stmt->fetch();
     $hashed = $row['password'];
-    $uid = $row['id'];
+    $uid = $row['id'];    
 
     $token = bin2hex(openssl_random_pseudo_bytes(16));
     $stmt = $this->db->prepare('INSERT INTO tbl_token(id_account,token) VALUES(:id_account,:token)');
@@ -36,6 +17,26 @@ $app->post('/login',function($request,$response){
     ));      
     return $this->response->withJson(array('status' => 'true','data'=>array('messages'=>'login success','token'=>$token)));    
 });
+
+
+
+$app->post('/register', function ($request, $response) {
+   if ($this->regValidation->hasErrors()) { // check for errors with hasErrors
+        $data = array();
+        return $this->response->withJson(array('status'=>'false','data'=>array($this->regValidation->getErrors())));
+    } else {
+        $input = $request->getParsedBody();   
+        $sql = "INSERT INTO tbl_account(username,email,password) VALUES (:username,:email,:password)";
+        $sth = $this->db->prepare($sql);
+        $sth->execute(array(
+            'username' => $input['username'],
+            'email' => $input['email'],
+            'password' => passhash($input['password'])            
+        ));
+         return $this->response->withJson(array('status'=>'true'));        
+    }
+})->add($container->get('regValidation'));
+
 
 $app->post('/logout',function($request,$response){
   $input = $request->getParsedBody();
