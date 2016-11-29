@@ -18,7 +18,21 @@ $app->add(function ($request, $response, $next) {
    $uri = $request->getUri()->getPath();
    switch ($uri) {
    	case '/register':
-   		$response = $next($request, $response);
+
+   		$sth = $this->db->prepare("SELECT * FROM tbl_account WHERE email = :email");
+		$sth->execute(
+		  array(
+		    "email" => $input['email']		        
+		  )
+		);
+		$count = $sth->rowCount();
+
+   		if($count==0){
+   			$response = $next($request, $response);	
+   		}else{
+   			$response = $this->response->withJson(array('status'=>'false','data'=>array('messages'=>'already registerd')));
+   		}
+   		
    		break;
    	
    	case '/login':
@@ -28,7 +42,7 @@ $app->add(function ($request, $response, $next) {
    	default:
    		if ($this->reqValidation->hasErrors()) { // check for errors with hasErrors
         $data = array();
-        $response = $this->response->withJson(array('status'=>'false','uri'=>$uri,'data'=>array($this->reqValidation->getErrors())));
+        $response = $this->response->withJson(array('status'=>'false','data'=>array($this->reqValidation->getErrors())));
 	    } else {
 		   $sth = $this->db->prepare("SELECT * FROM tbl_token WHERE token = :token and device = :device");
 		   $sth->execute(
@@ -44,10 +58,9 @@ $app->add(function ($request, $response, $next) {
 		   $response = $this->response->withJson(array('status'=>'false','data'=>''));
 		   }
 		}
-   		break;   }
+   		break;  
+   	 }
 
    
 	return $response;
 });
- 
- 
