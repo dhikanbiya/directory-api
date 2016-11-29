@@ -1,10 +1,20 @@
 # Directory API
 Simple API For Android Application Based on Directory
 
+Using Slim Framework v3
+
 ## Pre-Cautions:
 
 * Use composer for convinience
 * Work with Apache web server
+* The database sample is in directory 
+
+	migrate/
+
+* Use postman to test some method, the postman export is within folder
+
+	postman/	
+
 * Run the project with : 
 
 
