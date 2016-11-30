@@ -18,7 +18,7 @@ Using Slim Framework v3
 * Run the project with : 
 
 
-         php -s 127.0.0.1 -t Public/ 
+         php -S 127.0.0.1:8080 -t public public/index.php
 
    
 
