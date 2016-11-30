@@ -2,21 +2,27 @@
 // Application middleware
 
 // e.g: $app->add(new \Slim\Csrf\Guard);
-$pdo = $container->get('db');
+// $pdo = $container->get('db');
 
-$mw_auth = $app->add(new \Slim\Middleware\HttpBasicAuthentication([
-    "path" => "/login",
-    "realm" => "Protected",
-    "authenticator" => new \Slim\Middleware\HttpBasicAuthentication\PdoAuthenticator([
-        "pdo" => $pdo        
-    ])
-]));
+// $mw_auth = $app->add(new \Slim\Middleware\HttpBasicAuthentication([
+//     "path" => "/login",
+//     "realm" => "Protected",
+//     "authenticator" => new \Slim\Middleware\HttpBasicAuthentication\PdoAuthenticator([
+//         "pdo" => $pdo        
+//     ])
+// ]));
 
 
-$app->add(function ($request, $response, $next) {
+$app->add(function ($request, $response, $next) {   
+
    $input = $request->getParsedBody();
    $uri = $request->getUri()->getPath();
    switch ($uri) {
+   	case '/upload':
+
+   	break;
+
+
    	case '/register':
 
    		$sth = $this->db->prepare("SELECT * FROM tbl_account WHERE email = :email");
@@ -30,14 +36,14 @@ $app->add(function ($request, $response, $next) {
    		if($count==0){
    			$response = $next($request, $response);	
    		}else{
-   			$response = $this->response->withJson(array('status'=>'false','data'=>array('messages'=>'already registerd')));
+   			$response = $this->response->withJson(array('status'=>'false','data'=>array('messages'=>'already registered')));
    		}
    		
-   		break;
+   	break;
    	
    	case '/login':
    		$response = $next($request, $response);
-   		break;
+   	break;
 
    	default:
    		if ($this->reqValidation->hasErrors()) { // check for errors with hasErrors
@@ -58,7 +64,7 @@ $app->add(function ($request, $response, $next) {
 		   $response = $this->response->withJson(array('status'=>'false','data'=>''));
 		   }
 		}
-   		break;  
+   	break;  
    	 }
 
    

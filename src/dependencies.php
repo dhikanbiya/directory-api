@@ -30,6 +30,21 @@ $container['db'] = function ($c) {
 
 //validator
 use Respect\Validation\Validator as v;
+$container['loginValidation'] = function($c){
+    $passwordValidator = v::alnum()->noWhitespace()->length(5, 10);
+    $emailValidator = v::email();    
+    $deviceValidator = v::alnum();
+
+    $validators = array(
+        'email' => $emailValidator,
+        'password' => $passwordValidator,
+        'device' => $deviceValidator
+    );
+    return new \DavidePastore\Slim\Validation\Validation($validators);
+};
+
+
+
 $container['regValidation'] = function($c){
 	$usernameValidator = v::alnum()->noWhitespace()->length(5, 10);
     $passwordValidator = v::alnum()->noWhitespace()->length(5, 10);

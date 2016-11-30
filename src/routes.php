@@ -3,20 +3,51 @@
 $app->post('/login',function($request,$response){
     $input = $request->getParsedBody();
 
-    $stmt = $this->db->prepare('SELECT id,password FROM tbl_account WHERE username = :username');
-    $stmt->execute(array('username' => $input['username']));      
-    $row = $stmt->fetch();
-    $hashed = $row['password'];
-    $uid = $row['id'];    
+    if ($this->loginValidation->hasErrors()) { // check for errors with hasErrors
+        $data = array();
+        return $this->response->withJson(array('status'=>'false','data'=>array($this->loginValidation->getErrors())));
+    } else {
 
-    $token = bin2hex(openssl_random_pseudo_bytes(16));
-    $stmt = $this->db->prepare('INSERT INTO tbl_token(id_account,token) VALUES(:id_account,:token)');
-    $stmt->execute(array(
-      'id_account' => $uid,
-      'token' => $token
-    ));      
-    return $this->response->withJson(array('status' => 'true','data'=>array('messages'=>'login success','token'=>$token)));    
-});
+      //check email in database
+      $st = $this->db->prepare('SELECT * FROM tbl_account WHERE email = :email');
+      $st->execute(array(
+        'email' => $input['email']      
+        ));      
+      $count = $st->rowCount();
+      $account = $st->fetch();
+      if($account >0){      
+        $hashed = $account['password'];
+        $uid = $account['id'];
+        $login = clogin($input['password'],$hashed);
+        if($login == 1){
+          $st1 = $this->db->prepare('SELECT * FROM tbl_token WHERE id_account = :id_account');
+          $st1->execute(array(
+            'id_account' => $uid
+          ));
+          $cLogin = $st1->rowCount();
+          if($cLogin>0){ //check user if already login
+            return $this->response->withJson(array('status' => 'false','data'=>array('message'=>'already logged in')));
+          }else{          
+            $token = bin2hex(openssl_random_pseudo_bytes(8));
+            $st1 = $this->db->prepare('INSERT INTO tbl_token(id_account,token,device) VALUES (:id_account,:token,:device)');
+            $st1->execute(array(
+              'id_account' => $uid,
+              'token' => $token,
+              'device' => $input['device']
+            ));
+            return $this->response->withJson(array('status' => 'true','data'=>array('message'=>'logged in','token'=>$token)));
+          }        
+        }else{
+          return $this->response->withJson(array('status' => 'false','data'=>array('message'=>'email or password not found')));  
+        }
+      }else{
+        return $this->response->withJson(array('status' => 'false','data'=>array('message'=>'email or password not found')));
+      }    
+
+
+    }
+
+})->add($container->get('loginValidation'));
 
 
 
@@ -51,7 +82,7 @@ $app->post('/logout',function($request,$response){
         ));      
       return $this->response->withJson(array('status'=>'true','data'=>array('messages'=>'logged out')));
     }
-})->add($container->get('reqValidation'));
+});
 
 
 $app->put('/account/{username}',function($request){
@@ -146,7 +177,7 @@ $options = [
  return password_hash($passwd, PASSWORD_BCRYPT, $options);
 }
 
-function login($password,$hashed){ 
+function clogin($password,$hashed){ 
     if(password_verify($password,$hashed)){
       return 1;
     }else{
