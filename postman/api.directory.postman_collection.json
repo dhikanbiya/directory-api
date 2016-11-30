@@ -1,399 +1,397 @@
 {
-	"variables": [],
-	"info": {
-		"name": "api.directory",
-		"_postman_id": "9923f020-beee-671f-4d77-602d034b4648",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
+	"id": "9923f020-beee-671f-4d77-602d034b4648",
+	"name": "api.tangsel",
+	"description": "",
+	"order": [
+		"21297e3e-906f-94ff-88a0-da193d2ab958",
+		"ce202503-9383-0248-f0d1-73aba5a8c9c0",
+		"2eb6b4b8-f99e-cd1b-17a7-1470297207af",
+		"d613ce61-ae26-b164-b15f-ec07bb6d4d9b",
+		"8c841895-afda-299a-81f5-7cf0255f0890",
+		"b9ef0240-77a4-8338-5f6f-ccc14c5a71f2",
+		"5bdaf3e9-d79c-f893-9474-ff984f7663d1",
+		"5e07a9f6-450c-51e4-0ff6-6c41651fdccb",
+		"43bdcfd8-700f-1323-9739-4f990fe6ac5e",
+		"d27b146b-a465-dc4e-dc8a-a3d4f9638787"
+	],
+	"folders": [],
+	"timestamp": 1480010894708,
+	"owner": "1166929",
+	"public": false,
+	"requests": [
 		{
+			"id": "21297e3e-906f-94ff-88a0-da193d2ab958",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://127.0.0.1:8080/register",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "dhika",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "dhika@dhika.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "qwerty",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "device",
+					"value": "andromax",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480184305658,
 			"name": "register",
-			"request": {
-				"url": "http://127.0.0.1:8080/register",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "dh",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "email",
-							"value": "dhika@dhika.com",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "password",
-							"value": "qwerty",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": ""
-			},
-			"response": []
+			"description": "",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"responses": []
 		},
 		{
-			"name": "login",
-			"request": {
-				"url": "http://127.0.0.1:8080/login",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					},
-					{
-						"key": "Authorization",
-						"value": "Basic ZGhpa2E6cXdlcnR5",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "dhika",
-							"type": "text",
-							"enabled": true
-						}
-					]
+			"id": "2eb6b4b8-f99e-cd1b-17a7-1470297207af",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://127.0.0.1:8080/mall",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "77e73c4fae280abac3d43ccb1c46b957",
+					"type": "text",
+					"enabled": true
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
+				{
+					"key": "device",
+					"value": "samsung",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480313710383,
 			"name": "mall",
-			"request": {
-				"url": "http://127.0.0.1:8080/mall",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "token",
-							"value": "77e73c4fae280abac3d43ccb1c46b957",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": ""
-			},
-			"response": []
+			"description": "",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"responses": []
 		},
 		{
-			"name": "logout",
-			"request": {
-				"url": "http://127.0.0.1:8080/logout",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "token",
-							"value": "656ba8d88c8cd88855983b26b2a295a4",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						}
-					]
+			"id": "43bdcfd8-700f-1323-9739-4f990fe6ac5e",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://127.0.0.1:8080/resto_promo",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"data": [
+				{
+					"key": "token",
+					"value": "77e73c4fae280abac3d43ccb1c46b957",
+					"type": "text",
+					"enabled": true
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "mall_event",
-			"request": {
-				"url": "http://127.0.0.1:8080/mall_event",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "token",
-							"value": "77e73c4fae280abac3d43ccb1c46b957",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "mall_id",
-							"value": "1",
-							"type": "text",
-							"enabled": true
-						}
-					]
+				{
+					"key": "device",
+					"value": "samsung",
+					"type": "text",
+					"enabled": true
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "resto",
-			"request": {
-				"url": "http://127.0.0.1:8080/resto",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "resto_detail",
-			"request": {
-				"url": "http://127.0.0.1:8080/resto_detail",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "token",
-							"value": "77e73c4fae280abac3d43ccb1c46b957",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "mall_id",
-							"value": "1",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "resto_menu",
-			"request": {
-				"url": "http://127.0.0.1:8080/resto_menu",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "token",
-							"value": "77e73c4fae280abac3d43ccb1c46b957",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "resto_id",
-							"value": "1",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
+				{
+					"key": "resto_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
 			"name": "resto_promo",
-			"request": {
-				"url": "http://127.0.0.1:8080/resto_promo",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "token",
-							"value": "77e73c4fae280abac3d43ccb1c46b957",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "resto_id",
-							"value": "1",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": ""
-			},
-			"response": []
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480338399716,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
 		},
 		{
-			"name": "update_account",
-			"request": {
-				"url": "http://127.0.0.1:8080/account/1",
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					},
-					{
-						"key": "Authorization",
-						"value": "Basic ZGhpa2E6cXdlcnR5",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "dhika",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "token",
-							"value": "77e73c4fae280abac3d43ccb1c46b957",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "device",
-							"value": "samsung",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "address",
-							"value": "akita",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "kecamatan",
-							"value": "bojongsoang",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "kelurahan",
-							"value": "bojongsoang",
-							"type": "text",
-							"enabled": true
-						}
-					]
+			"id": "5bdaf3e9-d79c-f893-9474-ff984f7663d1",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://127.0.0.1:8080/resto_detail",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"data": [
+				{
+					"key": "token",
+					"value": "77e73c4fae280abac3d43ccb1c46b957",
+					"type": "text",
+					"enabled": true
 				},
-				"description": ""
-			},
-			"response": []
+				{
+					"key": "device",
+					"value": "samsung",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "mall_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "resto_detail",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480338162546,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "5e07a9f6-450c-51e4-0ff6-6c41651fdccb",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://127.0.0.1:8080/resto_menu",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"data": [
+				{
+					"key": "token",
+					"value": "77e73c4fae280abac3d43ccb1c46b957",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "device",
+					"value": "samsung",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "resto_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "resto_menu",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480338305191,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "8c841895-afda-299a-81f5-7cf0255f0890",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://127.0.0.1:8080/mall_event",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "77e73c4fae280abac3d43ccb1c46b957",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "device",
+					"value": "samsung",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "mall_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480316609506,
+			"name": "mall_event",
+			"description": "",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"responses": []
+		},
+		{
+			"id": "b9ef0240-77a4-8338-5f6f-ccc14c5a71f2",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://127.0.0.1:8080/resto",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"data": [
+				{
+					"key": "token",
+					"value": "77e73c4fae280abac3d43ccb1c46b957",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "device",
+					"value": "samsung",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "resto",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480338019708,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "ce202503-9383-0248-f0d1-73aba5a8c9c0",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic ZGhpa2E6cXdlcnR5\n",
+			"url": "http://127.0.0.1:8080/login",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "dhika",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480185431049,
+			"name": "login",
+			"description": "",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"responses": []
+		},
+		{
+			"id": "d27b146b-a465-dc4e-dc8a-a3d4f9638787",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic ZGhpa2E6cXdlcnR5\n",
+			"url": "http://127.0.0.1:8080/account/1",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"data": [
+				{
+					"key": "username",
+					"value": "dhika",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "token",
+					"value": "77e73c4fae280abac3d43ccb1c46b957",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "device",
+					"value": "samsung",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "akita",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "kecamatan",
+					"value": "bojongsoang",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "kelurahan",
+					"value": "bojongsoang",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "update_account",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480340729292,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "d613ce61-ae26-b164-b15f-ec07bb6d4d9b",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic ZGhpa2E6cXdlcnR5\n",
+			"url": "http://127.0.0.1:8080/logout",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "9923f020-beee-671f-4d77-602d034b4648",
+			"data": [
+				{
+					"key": "username",
+					"value": "dhika",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "logout",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480185193662,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
 		}
 	]
 }
